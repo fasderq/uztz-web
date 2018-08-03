@@ -1,37 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}УЗТС | О заводе{% endblock %}
-
 {% block body %}
 
 {% include 'general/header.html.twig'  %}
 
 <main class="main">
-
     {% include 'general/welcome.html.twig' %}
-
     {% include 'general/offers.html.twig' %}
-
     {% include 'general/about.html.twig' %}
-
     <div class="partner">
-
         <div class="container">
-
             <div class="row">
-
                 {% include 'general/partner.html.twig' %}
-
                 {% include 'general/news.html.twig' %}
-
             </div>
-
         </div>
-
     </div>
-
     {% include 'general/footer.html.twig'%}
-
 </main>
 
 {% endblock %}
