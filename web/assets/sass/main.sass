@@ -1,0 +1,603 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: 14px
+	min-width: 320px
+	position: relative
+	line-height: 1.3
+	font-family: $default-font
+	overflow-x: hidden
+	color: #333
+	background-color: #f7f7f7
+	opacity: 1
+
+p
+	line-height: 28px
+	margin-top: 0
+
+a
+	color: $accent-color
+
+	&:hover
+		color: lighten($accent-color, 5%)
+
+	&:active
+		color: darken($accent-color, 5%)
+
+	&:focus
+		color: darken($accent-color, 5%)
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	
+.header
+	min-height: 800px
+	background-image: url(../img/bg.jpg)
+	background-repeat: no-repeat
+	background-position: center top
+	background-size: cover
+	position: relative
+
+	&:before
+		content: ''
+		position: absolute
+		left: 0
+		right: 0
+		top: 0
+		bottom: 0
+		background-color: rgba(8, 43, 86, 0.5)
+
+	&__top
+		position: relative
+		z-index: 1
+		padding-top: 35px
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+
+	&__logotype-wrap
+		max-width: 132px
+		display: inline-block
+
+	&__nav
+		list-style-type: none
+		display: inline-block
+		padding: 0 0 0 75px
+		margin: 0
+
+		li
+			display: inline-block
+
+			a
+				padding-bottom: 33px
+				display: inline-block
+				font-family: 'OpenSansRegular', sans-serif
+				color: #d7d7d7
+				font-size: 14px
+				margin-left: 17px
+				margin-right: 17px
+				border-bottom: 2px solid transparent
+				transition: all .25s ease
+
+				&:hover
+					color: #ffffff
+					border-bottom: 2px solid $accent-color
+					text-decoration: none
+
+				&:active
+					color: #ffffff
+					border-bottom: 2px solid $accent-color
+					text-decoration: none
+
+				&:focus
+					color: #ffffff
+					border-bottom: 2px solid $accent-color
+					text-decoration: none
+
+			.header__nav-active
+				color: #ffffff
+				border-bottom: 2px solid $accent-color
+
+			&:first-child a
+				margin-left: 0
+
+	&__contacts
+		float: right
+		color: #ffffff
+		font-family: 'OpenSansBold', sans-serif
+		font-size: 15px
+		font-weight: bold
+		display: inline-block
+		line-height: 1
+		margin: 26px 0 0
+
+	&__center
+		position: relative
+		z-index: 2
+		margin-top: 220px
+		text-align: center
+
+	&__title
+		font-size: 60px
+		color: #ffffff
+		font-family: 'RalewayBlack', sans-serif
+		text-transform: uppercase
+		line-height: 1.3
+		margin: 0
+
+	&__subtitle
+		font-family: 'RalewayBold', sans-serif
+		font-size: 18px
+		color: #ffffff
+		text-transform: uppercase
+		max-width: 690px
+		margin-left: auto
+		margin-right: auto
+		position: relative
+
+		&:before
+			content: ''
+			position: absolute
+			top: 50%
+			left: 0
+			transform: translateY(-50%)
+			width: 160px
+			height: 2px
+			background-color: rgba(255, 255, 255, 0.3)
+
+		&:after
+			content: ''
+			position: absolute
+			top: 50%
+			right: 0
+			transform: translateY(-50%)
+			width: 160px
+			height: 2px
+			background-color: rgba(255, 255, 255, 0.3)
+
+.main
+	background-color: #ffffff
+	padding-top: 60px
+	position: relative
+	z-index: 10
+	min-height: 400px
+	max-width: 1350px
+	margin: -136px auto
+	box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2)
+	margin-bottom: 90px
+
+.title
+	font-family: 'RalewayExtraBold', sans-serif
+	text-transform: uppercase
+	position: relative
+	padding-bottom: 12px
+
+	&:after
+		content: ''
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 72px
+		height: 2px
+		background-color: $accent-color
+
+	&-center
+		text-align: center
+
+		&:after
+			left: 50%
+			transform: translateX(-50%)
+
+	&-large
+		font-size: 28px
+		margin-top: 0
+		margin-bottom: 50px
+
+.welcome
+	padding-bottom: 75px
+
+	&__img-wrap
+		min-height: 523px
+		max-width: 495px
+		background-image: url(../img/1i.jpg)
+		background-position: center
+		background-repeat: no-repeat
+		background-size: cover
+
+	&__title
+		max-width: 636px
+		margin-left: auto
+		margin-right: auto
+
+.offer
+	padding: 75px 0
+	background-color: #fcfcfc
+	border-top: 1px solid #eaeef0
+	border-bottom: 1px solid #eaeef0
+
+	.row
+		margin-left: -21px
+		margin-right: -21px
+
+	div[class^='col-']
+		padding-left: 21px
+		padding-right: 21px
+
+	&__item
+		background-color: #ffffff
+		padding: 40px 35px
+		border: 1px solid #eaeaea
+
+	&__title
+		margin-top: 0
+		margin-bottom: 10px
+		line-height: 1
+		font-size: 16px
+
+	&__subtitle
+		line-height: 1
+		font-size: 16px
+		font-family: 'OpenSansSemiBold', sans-serif
+		color: $accent-color
+		margin-top: 0
+		margin-bottom: 25px
+
+	&__logo
+		width: 100%
+		height: 200px
+		background-position: center
+		background-repeat: no-repeat
+		background-size: cover
+		margin-bottom: 25px
+
+.button
+	font-family: 'RalewayRegular', sans-serif
+	font-size: 16px
+	cursor: pointer
+	padding: 14px 30px
+	display: inline-block
+	text-decoration: none
+	outline: none
+	border: none
+	line-height: 1
+	transition: all .25s ease
+
+	&-blue
+		background-color: $accent-color
+		color: #ffffff
+
+		&:hover
+			text-decoration: none
+			color: #ffffff
+			background-color: lighten($accent-color, 5%)
+
+		&:active
+			text-decoration: none
+			color: #ffffff
+			background-color: darken($accent-color, 5%)
+
+		&:focus
+			text-decoration: none
+			color: #ffffff
+			background-color: darken($accent-color, 5%)
+
+	&-border
+		background-color: transparent
+		border: 1px solid #333
+		color: #333
+		padding: 13px 30px
+
+		&:hover
+			text-decoration: none
+			color: #ffffff
+			background-color: #333
+
+		&:active
+			text-decoration: none
+			color: #ffffff
+			background-color: darken(#333, 5%)
+
+		&:focus
+			text-decoration: none
+			color: #ffffff
+			background-color: darken(#333, 5%)
+
+.about
+	padding: 75px 0
+
+	&__button
+		margin-top: 40px
+		margin-right: 20px
+
+	&__img-wrap
+		min-height: 550px
+		max-width: 445px
+		margin-left: auto
+		background-position: center
+		background-repeat: no-repeat
+		background-size: cover
+
+	&__map
+
+		&-wrap
+			text-align: center
+			margin-top: 125px
+			height: 567px
+			width: 100%
+			margin-left: auto
+			margin-right: auto
+			position: relative
+			background-image: url(../img/World-atlas.svg)
+			background-position: center
+			background-repeat: no-repeat
+			background-size: contain
+
+			img
+				display: inline-block
+
+			.fa
+				font-size: 24px
+
+		&-russia
+			position: absolute
+			top: 12%
+			right: 37%
+
+		&-austria
+			position: absolute
+			top: 21%
+			right: 52%
+
+		&-algeria
+			position: absolute
+			top: 33%
+			right: 55%
+
+		&-usa
+			position: absolute
+			top: 25%
+			left: 17%
+
+.partner
+	padding: 75px 0
+
+	&__wrap
+		display: flex
+		flex-direction: row
+		align-items: center
+		margin-bottom: 60px
+
+	&__logo
+		flex: 1
+
+	&__desc
+		flex: 2.5
+		padding-left: 50px
+
+	&__address
+		margin: 0
+		padding-left: 25px
+		position: relative
+
+		&:before
+			content: '\f041'
+			font-family: 'FontAwesome'
+			position: absolute
+			left: 0
+			top: 50%
+			transform: translateY(-50%)
+			color: $accent-color
+
+	&__phone
+		margin: 0
+		padding-left: 25px
+		font-family: 'OpenSansRegular'
+		position: relative
+
+		&:before
+			content: '\f095'
+			font-family: 'FontAwesome'
+			position: absolute
+			left: 0
+			top: 50%
+			transform: translateY(-50%)
+			color: $accent-color
+
+	&__email
+		line-height: 28px
+		padding-left: 25px
+		position: relative
+
+		&:before
+			content: '\f0e0'
+			font-family: 'FontAwesome'
+			position: absolute
+			left: 0
+			top: 50%
+			transform: translateY(-50%)
+			color: $accent-color
+			font-size: 12px
+
+.latest-news
+
+	&__title
+		font-size: 12px
+
+	&__date
+		font-size: 12px
+		font-family: 'OpenSansRegular', sans-serif
+		color: #b7b7b7
+
+.footer
+	padding: 75px 0
+	background-color: #333333
+	color: #acacac
+
+	&__logo-wrap
+		max-width: 130px
+
+	&__copyright
+		font-size: 14px
+		margin-bottom: 0
+		margin-top: 40px
+		line-height: 1.6
+		font-family: 'OpenSansRegular', sans-serif
+		max-width: 170px
+
+	&__nav
+		list-style-type: none
+		display: block
+		padding: 0 0 18px
+		margin: -3px 0 0 0
+		border-bottom: 1px solid #acacac
+
+		li
+			display: inline-block
+
+			a
+				display: inline-block
+				font-family: 'OpenSansRegular', sans-serif
+				color: #acacac
+				font-size: 14px
+				margin-left: 17px
+				margin-right: 17px
+				transition: all .25s ease
+
+				&:hover
+					color: #ffffff
+					text-decoration: none
+
+				&:active
+					color: #ffffff
+					text-decoration: none
+
+				&:focus
+					color: #ffffff
+					text-decoration: none
+
+			&:first-child a
+				margin-left: 0
+
+	&__address
+		max-width: 240px
+		line-height: 1.6
+		margin-top: 40px
+		font-size: 14px
+		margin-bottom: 0
+		font-family: 'OpenSansRegular', sans-serif
+
+		i
+			margin-right: 5px
+
+	&__phone
+		line-height: 1.6
+		margin-top: 40px
+		font-size: 14px
+		margin-bottom: 0
+		font-family: 'OpenSansRegular', sans-serif
+
+		i
+			margin-right: 5px
+
+	&__phone-2
+		line-height: 1.6
+		margin-top: 40px
+		font-size: 14px
+		margin-bottom: 0
+		font-family: 'OpenSansRegular', sans-serif
+
+		i
+			margin-right: 5px
+
+.owl-carousel
+
+	.owl-dots
+		text-align: center
+		margin-top: 40px
+
+	button.owl-dot
+		width: 14px
+		height: 14px
+		border-radius: 50%
+		margin: 0 7px
+		background-color: #EAEAEA
+		outline: none
+		transition: all .25s ease
+
+		&.active
+			background-color: $accent-color
+			outline: none
+
+.page
+
+	.header
+
+		&__top
+			box-shadow: 0 0 1px 0 rgba(0,0,0,.2)
+			margin-bottom: 70px
+			background-color: #fff
+
+		&__nav
+
+			li
+
+				a
+					color: #333
+
+				&:hover
+					color: #333
+
+				&:active
+					color: #333
+
+				&:focus
+					color: #333
+
+			.header__nav-active
+				color: #333
+
+		&__contacts
+			color: #333
+
+	.main
+		margin-top: 0
+
+
+@import "media" // Всегда в конце
