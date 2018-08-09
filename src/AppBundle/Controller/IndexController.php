@@ -9,13 +9,14 @@ class IndexController extends Controller
 {
     public function indexAction(): Response
     {
-
         return $this->render('general/index.html.twig', []);
     }
 
-    public function headerAction(): Response
-    {
-        return $this->render('general/header.html.twig');
+    public  function catalogAction(): Response {
+
+
+        return $this->render('');
     }
+
 
 }
