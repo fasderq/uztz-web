@@ -1,0 +1,31 @@
+{% extends '@App/front/base.html.twig' %}
+
+{% block title %}УЗТС | Статья | {{ article.title }}{% endblock %}
+
+
+{% block body %}
+    {% include '@App/front/common/header.html.twig' with {headerBlock: 'news'} %}
+
+    <main class="main">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2 class="title title-large">{{ article.title }}</h2>
+                    <p class="news-preview__date">{{ article.publishedAt|date('d.m.Y') }}</p>
+                    {% if article.image %}
+                    <img src="{{ asset('uploads/images/article/') }}{{ article.image }}" alt="" class="img-responsive img-m">
+                    {% endif %}
+                    {{ article.body|raw }}
+                </div>
+                <div class="col-md-4">
+                    {{ render(controller(
+                        'AppBundle:Category:block'
+                    )) }}
+                </div>
+            </div>
+        </div>
+        {% include '@App/front/common/footer.html.twig' %}
+    </main>
+
+{% endblock %}

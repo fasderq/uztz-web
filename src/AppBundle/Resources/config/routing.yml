@@ -1,6 +1,15 @@
 index:
     path:     /
-    defaults: { _controller: AppBundle:Index:index }
+    defaults: { _controller: AppBundle:Front:index }
+contacts:
+    path:     /contacts
+    defaults: { _controller: AppBundle:Front:contacts }
+macine:
+    path:     /machine/{id}
+    defaults: { _controller: AppBundle:Machine:show }
+article:
+    path:     /news/article/{id}
+    defaults: { _controller: AppBundle:News:show }
 news:
     path:     /news
     defaults: { _controller: AppBundle:News:news }

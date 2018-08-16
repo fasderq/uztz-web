@@ -1,0 +1,44 @@
+{% extends '@App/front/base.html.twig' %}
+
+{% block title %}УЗТС | Новости {% endblock %}
+
+{% block body %}
+    {% include '@App/front/common/header.html.twig' with {headerBlock: 'news'} %}
+
+    <main class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2 class="title title-large">Новости</h2>
+                    
+                    {% for article in news %}
+                    <div class="news-preview__item">
+                        <p class="title title-small news-preview__title">{{ article.title }}</p>
+                        <p class="news-preview__date">{{ article.publishedAt|date('d.m.Y') }}</p>
+                        <p class="news-preview__desc">{{ article.body|slice(0, 255)|raw}}...</p>
+                        <a href="{{ path('article', {id: article.id}) }}" class="button button-blue">Подробнее</a>
+                    </div>
+                    {% endfor %}
+                    {{ knp_pagination_render(news) }}
+                    <ul class="pagination">
+                        {% if news.currentPageNumber >= 2 %}
+                            <li><a class="pagination__prev" href="{{ path('news', {page: news.currentPageNumber - 1}) }}">Назад</a></li>
+                        {% endif %}
+                        <li><a href="#">2</a></li>
+                        <li><a class="pagination__active" href="#">{{ news.currentPageNumber }}</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a class="pagination__next" href="#">Вперед</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    {{ render(controller(
+                        'AppBundle:Category:block'
+                    )) }}
+                </div>
+            </div>
+        </div>
+
+        {% include '@App/front/common/footer.html.twig' %}
+    </main>
+
+{% endblock %}

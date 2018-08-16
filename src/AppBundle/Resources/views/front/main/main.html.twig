@@ -1,0 +1,17 @@
+{% extends '@App/front/base-main.html.twig' %}
+
+{% block title %} УЗТС | Главная {% endblock %}
+
+{% block body %}
+    {% include '@App/front/common/header-main.html.twig' %}
+    <div class="main" >
+        {% include '@App/front/main/welcome.html.twig' %}
+
+        {% include '@App/front/main/about.html.twig' %}
+
+        {% include '@App/front/main/partner.html.twig' %}
+
+        {% include '@App/front/common/footer.html.twig' %}
+    </div>
+
+{% endblock %}

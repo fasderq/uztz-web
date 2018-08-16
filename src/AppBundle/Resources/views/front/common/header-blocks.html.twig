@@ -1,0 +1,6 @@
+<ul class="header__nav">
+    <li><a href="#" class="{% if headerBlock and headerBlock == 'catalog' %}header__nav-active{% endif %}" >Каталог</a></li>
+    <li><a href="#" class="{% if headerBlock and headerBlock == 'about' %}header__nav-active{% endif %}">О заводе</a></li>
+    <li><a href="{{ path('news') }}" class="{% if headerBlock and headerBlock == 'news' %}header__nav-active{% endif %}">Новости</a></li>
+    <li><a href="{{ path('contacts') }}" class="{% if headerBlock and headerBlock == 'contacts' %}header__nav-active{% endif %}">Контакты</a></li>
+</ul>

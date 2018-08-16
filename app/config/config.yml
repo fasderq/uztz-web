@@ -1,89 +1,93 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: services.yml }
+- { resource: parameters.yml }
+- { resource: security.yml }
+- { resource: services.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+  locale: ru
+  app.path.machine_images: /uploads/images/machine
+  app.path.article_images: /uploads/images/article
+
 
 framework:
-    #esi: ~
-#    translator: { fallbacks: ['%locale%'] }
-    translator: ~
-    secret: '%secret%'
-    router:
-        resource: '%kernel.project_dir%/app/config/routing.yml'
-        strict_requirements: ~
-    form: ~
-    csrf_protection: ~
-    validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
-    default_locale: '%locale%'
-    trusted_hosts: ~
-    session:
-        # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
-        handler_id: session.handler.native_file
-        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
-    fragments: ~
-    http_method_override: true
-    assets: ~
-    php_errors:
-        log: true
-    templating:
-        engines: ['twig']
+  #esi: ~
+#      translator: { fallbacks: ['ru'] }
+  translator: { fallbacks: ['%locale%'] }
+#  translator: ~
+  secret: '%secret%'
+  router:
+    resource: '%kernel.project_dir%/app/config/routing.yml'
+    strict_requirements: ~
+  form: ~
+  csrf_protection: ~
+  validation: { enable_annotations: true }
+  #serializer: { enable_annotations: true }
+  default_locale: '%locale%'
+  trusted_hosts: ~
+  session:
+    # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+    handler_id: session.handler.native_file
+    save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+  fragments: ~
+  http_method_override: true
+  assets: ~
+  php_errors:
+    log: true
+  templating:
+    engines: ['twig']
 
 # Twig Configuration
 twig:
-    debug: '%kernel.debug%'
-    strict_variables: '%kernel.debug%'
+  debug: '%kernel.debug%'
+  strict_variables: '%kernel.debug%'
 
 # Doctrine Configuration
 doctrine:
-    dbal:
-        driver: pdo_pgsql
-        host: '%database_host%'
-        port: '%database_port%'
-        dbname: '%database_name%'
-        user: '%database_user%'
-        password: '%database_password%'
-        charset: UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #path: '%database_path%'
+  dbal:
+    driver: pdo_pgsql
+    host: '%database_host%'
+    port: '%database_port%'
+    dbname: '%database_name%'
+    user: '%database_user%'
+    password: '%database_password%'
+    charset: UTF8
+    # if using pdo_sqlite as your database driver:
+    #   1. add the path in parameters.yml
+    #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
+    #   2. Uncomment database_path in parameters.yml.dist
+    #   3. Uncomment next line:
+    #path: '%database_path%'
 
-    orm:
-        auto_generate_proxy_classes: '%kernel.debug%'
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+  orm:
+    auto_generate_proxy_classes: '%kernel.debug%'
+    naming_strategy: doctrine.orm.naming_strategy.underscore
+    auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
-    spool: { type: memory }
+  transport: '%mailer_transport%'
+  host: '%mailer_host%'
+  username: '%mailer_user%'
+  password: '%mailer_password%'
+  spool: { type: memory }
 
 sensio_framework_extra:
-   router:
-        annotations: false
+  router:
+    annotations: false
 
 doctrine_migrations:
-    dir_name: '%kernel.root_dir%/Migrations'
-    namespace: App\Migrations
-    table_name: migration_versions
-    column_name: version
-    column_length: 14
-    executed_at_column_name: 'executed_at'
-    name: Application Migrations
-    organize_migrations: BY_YEAR_AND_MONTH
-    custom_template: ~ # Version >= 1.2, path to your custom migrations template
-    all_or_nothing: true
+  dir_name: '%kernel.root_dir%/Migrations'
+  namespace: App\Migrations
+  table_name: migration_versions
+  column_name: version
+  column_length: 14
+  executed_at_column_name: 'executed_at'
+  name: Application Migrations
+  organize_migrations: BY_YEAR_AND_MONTH
+  custom_template: ~ # Version >= 1.2, path to your custom migrations template
+  all_or_nothing: true
 
 fos_user:
   db_driver: orm # other valid values are 'mongodb' and 'couchdb'
@@ -92,3 +96,104 @@ fos_user:
   from_email:
     address: "%mailer_user%"
     sender_name: "%mailer_user%"
+
+easy_admin:
+  site_name: 'УЗТС'
+  entities:
+    Category:
+      class: AppBundle\Entity\Category
+      label: 'Каталог'
+      list:
+        actions:
+        - { name: 'edit', label: 'Редактировать'}
+        - { name: 'new', label: 'Добавить каталог' }
+        - { name: 'delete', label: 'Удалить' }
+        title: 'Каталог станков'
+        fields:
+        - {property: 'name', label: 'Название каталога'}
+        - {property: 'machines', label: 'Станки'}
+      edit:
+        title: 'Редактировать'
+      new:
+        title:  'Добавить каталог'
+      form:
+        fields:
+        - { property: 'name', label: 'Каталог' }
+        - { property: 'machines', label: 'Станки' }
+
+
+    Machine:
+      class: AppBundle\Entity\Machine
+      label: 'Станки'
+      list:
+        actions:
+        - { name: 'edit', label: 'Редактировать'}
+        - { name: 'new', label: 'Добавить станок' }
+        - { name: 'delete', label: 'Удалить' }
+        title: 'Станки'
+        fields:
+        - { property: 'name', label: 'Название станка'}
+        - { property: 'model', label: 'Модель'}
+        - { property: 'image', type: 'image', base_path: '%app.path.machine_images%', label: 'Изображение' }
+
+      form:
+        fields:
+        - { property: 'name', label: 'Название' }
+        - { property: 'model', label: 'Модель' }
+        - { property: 'description', type: 'ckeditor', label: 'Описание' }
+        - { property: 'imageFile', type: 'vich_image', label: 'Изображение' }
+
+    Article:
+      class: AppBundle\Entity\Article
+      label: 'Новости'
+      list:
+        actions:
+        - { name: 'edit', label: 'Редактировать'}
+        - { name: 'new', label: 'Добавить статью' }
+        - { name: 'delete', label: 'Удалить' }
+        title: 'Новости'
+        fields:
+        - { property: 'title', label: 'Статья'}
+        - { property: 'image', type: 'image', base_path: '%app.path.article_images%', label: 'Изображение' }
+      form:
+        fields:
+        - { property: 'title', label: 'Загловок' }
+        - { property: 'body', type: 'ckeditor', label: 'Описание' }
+        - { property: 'imageFile', type: 'vich_image', label: 'Изображение' }
+        - { property: 'published', label: 'Опубликовать' }
+
+ivory_ck_editor:
+  input_sync: true
+  default_config: base_config
+#  configs:
+#    base_config:
+#      toolbar: full
+
+  configs:
+    base_config:
+      toolbar:
+      - { name: "styles", items: ['Bold', 'Italic', 'BulletedList', 'Link', 'Table', 'Image'] }
+
+vich_uploader:
+  db_driver: orm
+  mappings:
+    machine_images:
+      uri_prefix:         '%app.path.machine_images%'
+      upload_destination: '%kernel.root_dir%/../web%app.path.article_images%'
+    article_images:
+      uri_prefix:         '%app.path.article_images%'
+      upload_destination: '%kernel.root_dir%/../web%app.path.article_images%'
+
+knp_paginator:
+  page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
+  default_options:
+    page_name: page                 # page query parameter name
+    sort_field_name: sort           # sort field query parameter name
+    sort_direction_name: direction  # sort direction query parameter name
+    distinct: true                  # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    filter_field_name: filterField  # filter field query parameter name
+    filter_value_name: filterValue  # filter value query parameter name
+  template:
+    pagination: '@KnpPaginator/Pagination/sliding.html.twig'     # sliding pagination controls template
+    sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
+    filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template

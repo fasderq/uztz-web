@@ -1,0 +1,52 @@
+{% extends '@App/front/base.html.twig' %}
+
+{% block title %}УЗТС | Контакты {% endblock %}
+
+{% block body %}
+
+    {% include '@App/front/common/header.html.twig' with {headerBlock: 'contacts'} %}
+
+<main class="main">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-8">
+
+                <h2 class="title title-large">Контакты</h2>
+
+                <h3 class="title title-small">Ульяновский завод тяжёлых и уникальных станков</h3>
+
+                <p class="contacts__address">Адрес:<br>
+                    <i class="fa fa-map-marker"></i> 432042, г. Ульяновск, ул. Герасимова д.10-к, стр.2</p>
+
+                <p class="contacts__phone">Телефон в г.Ульяновск:<br>
+                    <i class="fa fa-phone"></i> +7 8422 36 03 24<br>
+                    <i class="fa fa-phone"></i> +7 8422 61 73 60</p>
+
+                <p class="contacts__phone-2">Телефон в г.Москва:<br>
+                    <i class="fa fa-phone"></i> +7 495 234 88 80</p>
+
+                <p><a href="http://uzts.ru">www.uzts.ru</a><br>
+                    E-mail: <a href="mailto:market@uzts.ru">market@uzts.ru</a></p>
+
+                <div class="ya-map">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A54d2f049257e2a46a4117023f0b0e4a4a3d440236d248bdca9e2e0788f37093f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-4">
+                {{ render(controller(
+                    'AppBundle:Category:block'
+                )) }}
+            </div>
+
+        </div>
+    </div>
+    {% include '@App/front/common/footer.html.twig' %}
+</main>
+
+{% endblock %}

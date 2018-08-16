@@ -33,3 +33,15 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    AppBundle\Repository\CategoryRepository:
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments: [AppBundle\Entity\Category]
+        autowire: true
+    AppBundle\Repository\MachineRepository:
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments: [AppBundle\Entity\Machine]
+        autowire: true
+    AppBundle\Repository\ArticleRepository:
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments: [AppBundle\Entity\Article]
+        autowire: true

@@ -1,0 +1,10 @@
+<div class="header__top">
+    <div class="container">
+        <div class="header__logotype-wrap">
+            <a href="{{ path('index') }}"><img src="{{ asset('assets/img/logo-color.png') }}" alt="" class="img-responsive"></a>
+        </div>
+        {% include '@App/front/common/header-blocks.html.twig' with {headerBlock: headerBlock} %}
+        <a href="#" class="header__hamburger hidden-lg"><span></span></a>
+        <p class="header__contacts">+7 (8422) 36-03-24</p>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="catalog-aside">
+    <h3 class="title title-small catalog-aside__title">Каталог</h3>
+    <ul class="catalog-aside__list">
+        {% for category in categories %}
+            <li><a class="catalog-aside__head" href="#">{{ category.name }}</a>
+                <ul class="catalog-aside__sublist">
+                    {% for machine in category.machines %}
+                        <li><a href="{{ path('macine', {id: machine.id}) }}">{{ machine.name }} {{ machine.model }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

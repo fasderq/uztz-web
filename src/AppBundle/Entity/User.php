@@ -24,14 +24,14 @@ class User extends  BaseUser
     }
 
     /**
-     * @param $username
+     * @param $email string
      *
      * @return User
      */
-    public function setUsername($username): self
+    public function setEmail($email): self
     {
-        $this->setEmail($username);
+        $this->setUsername($email);
 
-        return $this;
+        return parent::setEmail($email);
     }
 }
