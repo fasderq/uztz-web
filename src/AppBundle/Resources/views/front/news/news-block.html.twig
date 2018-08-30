@@ -5,17 +5,5 @@
         <a href="{{ path('article', {id: article.id}) }}" class="latest-news__title">{{ article.title }}</a>
         <p class="latest-news__date">{{ article.publishedAt|date('d.m.Y') }}</p>
     {% endfor %}
-    {#<a href="#" class="latest-news__title">Выездное заседание Комитета по координации производителей#}
-        {#грузовых вагонов и их компонентов</a>#}
-    {#<p class="latest-news__date">07.03.2018</p>#}
-    {#<a href="#" class="latest-news__title">В Ульяновской области будет создано производство#}
-        {#металлообрабатывающих станков</a>#}
-    {#<p class="latest-news__date">12.06.2018</p>#}
-    {#<a href="#" class="latest-news__title">В Ульяновской области будет создано производство#}
-        {#металлообрабатывающих станков</a>#}
-    {#<p class="latest-news__date">12.06.2018</p>#}
-    {#<a href="#" class="latest-news__title">В Ульяновской области будет создано производство#}
-        {#металлообрабатывающих станков</a>#}
-    {#<p class="latest-news__date">12.06.2018</p>#}
-    <a href="#" class="button button-blue">Все новости</a>
+    <a href="{{ path('news') }}" class="button button-blue">Все новости</a>
 </div>

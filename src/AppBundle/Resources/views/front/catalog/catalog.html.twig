@@ -1,23 +1,16 @@
 {% extends '@App/front/base.html.twig' %}
 
-{% block title %}УЗТС | {{ machine.model }} {% endblock %}
-
-
-
+{% block title %}УЗТС | Каталог{% endblock %}
 
 {% block body %}
-
     {% include '@App/front/common/header.html.twig' with {headerBlock: 'catalog'} %}
 
     <main class="main">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h2 class="title title-large">{{ machine.name }}</h2>
-                    <h4 class="title title-small catalog__model">Модель <span>{{ machine.model }}</span></h4>
-                    <img src="{{ asset('uploads/images/machine/') }}{{ machine.image }}" alt=""
-                         class="img-responsive img-m">
-                    {{ machine.description|raw }}
+                    <h2 class="title title-large">Каталог</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aut debitis doloremque eos excepturi explicabo illo laudantium maxime necessitatibus non nostrum, obcaecati, officiis quis quos rem repudiandae saepe soluta veniam!
                 </div>
                 <div class="col-md-4">
                     {{ render(controller(
@@ -26,7 +19,7 @@
                 </div>
             </div>
         </div>
+
         {% include '@App/front/common/footer.html.twig' %}
     </main>
-
 {% endblock %}

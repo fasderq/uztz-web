@@ -4,8 +4,12 @@
 
 {% block body %}
     {% include '@App/front/common/header-main.html.twig' %}
-    <div class="main" >
+    <div class="main">
         {% include '@App/front/main/welcome.html.twig' %}
+
+        {% if machines %}
+            {% include '@App/front/main/offers.html.twig' with {machines: machines} %}
+        {% endif %}
 
         {% include '@App/front/main/about.html.twig' %}
 

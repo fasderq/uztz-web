@@ -5,8 +5,8 @@
                 <a href="{{ path('index') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="" class="img-responsive"></a>
             </div>
             <ul class="header__nav">
-                <li><a href="#">Каталог</a></li>
-                <li><a href="/">О заводе</a></li>
+                <li><a href="{{ path('catalog') }}">Каталог</a></li>
+                <li><a href="{{ path('about') }}">О заводе</a></li>
                 <li><a href="{{ path('news') }}">Новости</a></li>
                 <li><a href="{{ path('contacts') }}">Контакты</a></li>
             </ul>

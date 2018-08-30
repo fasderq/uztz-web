@@ -134,6 +134,7 @@ easy_admin:
         fields:
         - { property: 'name', label: 'Название станка'}
         - { property: 'model', label: 'Модель'}
+        - { property: 'hot', label: 'Горячее предложение' }
         - { property: 'image', type: 'image', base_path: '%app.path.machine_images%', label: 'Изображение' }
 
       form:
@@ -165,21 +166,21 @@ easy_admin:
 ivory_ck_editor:
   input_sync: true
   default_config: base_config
-#  configs:
-#    base_config:
-#      toolbar: full
-
   configs:
     base_config:
-      toolbar:
-      - { name: "styles", items: ['Bold', 'Italic', 'BulletedList', 'Link', 'Table', 'Image'] }
+      toolbar: full
+
+#  configs:
+#    base_config:
+#      toolbar:
+#      - { name: "styles", items: ['Bold', 'Italic', 'BulletedList', 'Link', 'Table', 'Image'] }
 
 vich_uploader:
   db_driver: orm
   mappings:
     machine_images:
       uri_prefix:         '%app.path.machine_images%'
-      upload_destination: '%kernel.root_dir%/../web%app.path.article_images%'
+      upload_destination: '%kernel.root_dir%/../web%app.path.machine_images%'
     article_images:
       uri_prefix:         '%app.path.article_images%'
       upload_destination: '%kernel.root_dir%/../web%app.path.article_images%'

@@ -12,22 +12,33 @@
                     <h2 class="title title-large">Новости</h2>
 
                     {% for article in news %}
-                    <div class="news-preview__item">
-                        <p class="title title-small news-preview__title">{{ article.title }}</p>
-                        <p class="news-preview__date">{{ article.publishedAt|date('d.m.Y') }}</p>
-                        <p class="news-preview__desc">{{ article.body|slice(0, 255)|raw}}...</p>
-                        <a href="{{ path('article', {id: article.id}) }}" class="button button-blue">Подробнее</a>
-                    </div>
+                        <div class="news-preview__item">
+                            <p class="title title-small news-preview__title">{{ article.title }}</p>
+                            <p class="news-preview__date">{{ article.publishedAt|date('d.m.Y') }}</p>
+                            <p class="news-preview__desc">{{ article.body|slice(0, 255)|raw }}...</p>
+                            <a href="{{ path('article', {id: article.id}) }}" class="button button-blue">Подробнее</a>
+                        </div>
                     {% endfor %}
-                    {{ knp_pagination_render(news) }}
                     <ul class="pagination">
-                        {% if news.currentPageNumber >= 2 %}
-                            <li><a class="pagination__prev" href="{{ path('news', {page: news.currentPageNumber - 1}) }}">Назад</a></li>
+                        {% set pageNumber = news.currentPageNumber %}
+                        {% if pageNumber > 1 %}
+                            <li><a class="pagination__prev" href="{{ path('news', {page: pageNumber - 1}) }}">Назад</a>
+                            </li>
                         {% endif %}
-                        <li><a href="#">2</a></li>
-                        <li><a class="pagination__active" href="#">{{ news.currentPageNumber }}</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a class="pagination__next" href="#">Вперед</a></li>
+                        {% if pageNumber >= 2 %}
+                            <li><a href="{{ path('news', {page: pageNumber - 1}) }}">{{ pageNumber - 1 }}</a></li>
+                        {% endif %}
+                        <li><a class="pagination__active"
+                               href="{{ path('news', {page: pageNumber }) }}">{{ pageNumber }}</a></li>
+                        {% set total = news.items|length %}
+                        {% if not total < 5 %}
+                            {% set nextPage = pageNumber + 1 %}
+                                <li><a href="{{ path('news', {page: nextPage }) }}">{{ pageNumber + 1 }}</a></li>
+                                <li><a class="pagination__next"
+                                       href="{{ path('news', {page: pageNumber + 1}) }}">Вперед</a>
+
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="col-md-4">

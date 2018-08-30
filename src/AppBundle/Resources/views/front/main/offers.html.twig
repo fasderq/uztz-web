@@ -1,0 +1,15 @@
+<div class="offer">
+    <div class="container">
+        <h2 class="title title-large">Горячее предложение</h2>
+        <div class="owl-carousel">
+            {% for machine in machines %}
+                <div class="offer__item">
+                    <p class="offer__title">{{ machine.name }}</p>
+                    <p class="offer__subtitle">{{ machine.model }}</p>
+                    <div class="offer__logo" style="background-image: url({{ asset('uploads/images/machine/') }}{{ machine.image }});"></div>
+                    <a href="{{ path('macine', {id: machine.id}) }}" class="button button-blue">Подробнее</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

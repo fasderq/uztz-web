@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\DBAL\Schema\Column;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -64,6 +65,11 @@ class Machine
      * @var \DateTime
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true, options={"default": false})
+     */
+    protected $hot;
 
     /**
      * Get id.
@@ -175,4 +181,25 @@ class Machine
     {
         return $this->image;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getHot()
+    {
+        return $this->hot;
+    }
+
+    /**
+     * @param $hot
+     *
+     * @return $this
+     */
+    public function setHot($hot)
+    {
+        $this->hot = $hot;
+
+        return $this;
+    }
+
 }

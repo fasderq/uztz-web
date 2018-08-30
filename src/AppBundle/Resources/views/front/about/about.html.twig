@@ -1,0 +1,52 @@
+{% extends '@App/front/base.html.twig' %}
+
+{% block body %}
+    {% include '@App/front/common/header.html.twig' with {headerBlock: 'about'} %}
+
+    <main class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2 class="title title-large">О заводе</h2>
+                    <div class="tabs">
+                        <ul class="tabs__caption">
+                            <li class="active"><span>История</span></li>
+                            <li><span>Профиль</span></li>
+                            <li><span>Проекты</span></li>
+                            <li><span>Технические возможности</span></li>
+                            <li><span>Завод</span></li>
+                            <li><span>Награды</span></li>
+                        </ul>
+                        <div class="tabs__content active">
+                            Содержимое 1 блока
+                        </div>
+                        <div class="tabs__content">
+                            Содержимое 2 блока
+                        </div>
+                        <div class="tabs__content">
+                            Содержимое 3 блока
+                        </div>
+                        <div class="tabs__content">
+                            Содержимое 4 блока
+                        </div>
+                        <div class="tabs__content">
+                            Содержимое 5 блока
+                        </div>
+                        <div class="tabs__content">
+                            Содержимое 6 блока
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    {{ render(controller(
+                        'AppBundle:Category:block'
+                    )) }}
+                </div>
+            </div>
+        </div>
+        {% include '@App/front/common/footer.html.twig' %}
+
+    </main>
+
+{% endblock %}

@@ -13,3 +13,9 @@ article:
 news:
     path:     /news
     defaults: { _controller: AppBundle:News:news }
+about:
+    path:     /about
+    defaults: { _controller: AppBundle:Front:about }
+catalog:
+    path:     /catalog
+    defaults: { _controller: AppBundle:Front:catalog }
