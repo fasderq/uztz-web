@@ -142,6 +142,7 @@ easy_admin:
         - { property: 'name', label: 'Название' }
         - { property: 'model', label: 'Модель' }
         - { property: 'description', type: 'ckeditor', label: 'Описание' }
+        - { property: 'hot', label: 'Горячее предложение' }
         - { property: 'imageFile', type: 'vich_image', label: 'Изображение' }
 
     Article:
