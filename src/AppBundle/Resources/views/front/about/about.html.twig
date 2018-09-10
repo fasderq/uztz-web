@@ -12,33 +12,18 @@
                     <h2 class="title title-large">О заводе</h2>
                     <div class="tabs">
                         <ul class="tabs__caption">
-                            <li class="active"><span>История</span></li>
-                            <li><span>Профиль</span></li>
-                            <li><span>Проекты</span></li>
-                            <li><span>Технические возможности</span></li>
-                            <li><span>Завод</span></li>
-                            <li><span>Награды</span></li>
+                            {% set i = 1 %}
+                        {% for block in blocks %}
+                            <li {% if i == 1 %} class="active" {% endif %} ><span>{{ block.title }}</span></li>
+                            {% set i = i + 1 %}
+                        {% endfor %}
                         </ul>
-                        <div class="tabs__content active">
-                            Содержимое 1 блока
-                        </div>
-                        <div class="tabs__content">
-                            Содержимое 2 блока
-                        </div>
-                        <div class="tabs__content">
-                            Содержимое 3 блока
-                        </div>
-                        <div class="tabs__content">
-                            Содержимое 4 блока
-                        </div>
-                        <div class="tabs__content">
-                            Содержимое 5 блока
-                        </div>
-                        <div class="tabs__content">
-                            Содержимое 6 блока
-                        </div>
+                        {% set n = 1 %}
+                        {% for block in blocks %}
+                            <div class="tabs__content {% if n == 1 %} active {% endif %}">{{ block.body|raw }}</div>
+                            {% set n = n + 1 %}
+                        {% endfor %}
                     </div>
-
                 </div>
                 <div class="col-md-4">
                     {{ render(controller(

@@ -45,3 +45,7 @@ services:
         factory: ["@doctrine.orm.entity_manager", getRepository]
         arguments: [AppBundle\Entity\Article]
         autowire: true
+    AppBundle\Repository\AboutBlockRepository:
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments: [AppBundle\Entity\AboutBlock]
+        autowire: true

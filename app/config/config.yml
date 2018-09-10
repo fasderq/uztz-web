@@ -164,6 +164,25 @@ easy_admin:
         - { property: 'imageFile', type: 'vich_image', label: 'Изображение' }
         - { property: 'published', label: 'Опубликовать' }
 
+    About:
+      class: AppBundle\Entity\AboutBlock
+      label: 'О заводе'
+      list:
+        actions:
+        - { name: 'edit', label: 'Редактировать'}
+        - { name: 'new', label: 'Добавить блок' }
+        - { name: 'delete', label: 'Удалить' }
+        title: 'О заводе'
+        fields:
+        - { property: 'title', label: 'Название' }
+        - { property: 'body', label: 'Текст' }
+        - { property: 'position', label: 'Позиция' }
+      form:
+        fields:
+        - { property: 'title', label: 'Загловок' }
+        - { property: 'body', type: 'ckeditor', label: 'Описание' }
+        - { property: 'position', label: 'Позиция' }
+
 ivory_ck_editor:
   input_sync: true
   default_config: base_config
@@ -180,9 +199,11 @@ vich_uploader:
   db_driver: orm
   mappings:
     machine_images:
+      namer: Vich\UploaderBundle\Naming\UniqidNamer
       uri_prefix:         '%app.path.machine_images%'
       upload_destination: '%kernel.root_dir%/../web%app.path.machine_images%'
     article_images:
+      namer: Vich\UploaderBundle\Naming\UniqidNamer
       uri_prefix:         '%app.path.article_images%'
       upload_destination: '%kernel.root_dir%/../web%app.path.article_images%'
 
