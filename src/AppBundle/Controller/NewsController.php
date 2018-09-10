@@ -42,7 +42,7 @@ class NewsController extends Controller
     {
 //        $news = $this->repository->findBy(['published' => true], ['publishedAt' => 'DESC']);
         $em    = $this->get('doctrine.orm.entity_manager');
-        $dql   = "SELECT a FROM AppBundle:Article a";
+        $dql   = "SELECT a FROM AppBundle:Article a WHERE a.published = true";
         $query = $em->createQuery($dql);
 
         $paginator = $this->get('knp_paginator');

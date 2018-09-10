@@ -156,6 +156,7 @@ easy_admin:
         title: 'Новости'
         fields:
         - { property: 'title', label: 'Статья'}
+        - { property: 'published', label: 'Опубликовать' }
         - { property: 'image', type: 'image', base_path: '%app.path.article_images%', label: 'Изображение' }
       form:
         fields:
@@ -179,9 +180,9 @@ easy_admin:
         - { property: 'position', label: 'Позиция' }
       form:
         fields:
+        - { property: 'position', label: 'Позиция' }
         - { property: 'title', label: 'Загловок' }
         - { property: 'body', type: 'ckeditor', label: 'Описание' }
-        - { property: 'position', label: 'Позиция' }
 
 ivory_ck_editor:
   input_sync: true
