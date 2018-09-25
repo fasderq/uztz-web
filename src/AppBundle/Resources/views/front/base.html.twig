@@ -25,5 +25,17 @@
 {% block javascripts %}
     <script src="{{ asset('assets/js/scripts.min.js') }}"></script>
 {% endblock %}
+<script type="text/javascript">
+    window._pushkin = window._pushkin || [];
+    window._pushkin.push(['configure', {
+        projectToken: '2f02aa73-7ae0-404d-9708-1b5973d42d66',
+    }]);
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.async = !0;
+    s.src = 'https://api.pushk.in/widget.js?t=' + (new Date()).getTime();
+    var a = document.getElementsByTagName("script")[0];
+    a.parentNode.insertBefore(s, a);
+</script>
 </body>
 </html>
